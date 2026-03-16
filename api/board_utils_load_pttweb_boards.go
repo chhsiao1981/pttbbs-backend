@@ -2,6 +2,7 @@ package api
 
 import (
 	"context"
+	"fmt"
 	"net/http"
 	"strconv"
 	"strings"
@@ -19,6 +20,28 @@ import (
 )
 
 func TryLoadPttWebPopularBoards(c *gin.Context) (boards []*schema.BoardSummary, err error) {
+	updateNanoTS := types.NowNanoTS()
+	popularBoards, err := tryLoadPttWebPopularBoardsCore(c, updateNanoTS)
+	if err != nil {
+		return nil, err
+	}
+
+	whiteListBoards, err := tryLoadPttWebWhiteListBoards(c, updateNanoTS)
+	if err != nil {
+		return nil, err
+	}
+
+	boards = append(popularBoards, whiteListBoards...)
+	_ = schema.ResetBoardIsPopular()
+	err = schema.UpdateBoardSummaries(boards, updateNanoTS)
+	if err != nil {
+		return nil, err
+	}
+
+	return boards, nil
+}
+
+func tryLoadPttWebPopularBoardsCore(c *gin.Context, updateNanoTS types.NanoTS) (boards []*schema.BoardSummary, err error) {
 	req, err := http.NewRequest("GET", types.PTTWEB_HOTBOARD_URL, nil)
 	if err != nil {
 		logrus.Errorf("unable to NewRequest: e: %v", err)
@@ -43,7 +66,6 @@ func TryLoadPttWebPopularBoards(c *gin.Context) (boards []*schema.BoardSummary, 
 		return nil, err
 	}
 
-	updateNanoTS := types.NowNanoTS()
 	boards = make([]*schema.BoardSummary, 0, types.MAX_POPULAR_BOARDS)
 	for node := range doc.Descendants() {
 		if node.DataAtom == atom.Div {
@@ -53,7 +75,7 @@ func TryLoadPttWebPopularBoards(c *gin.Context) (boards []*schema.BoardSummary, 
 				continue
 			}
 			if theClass.Val == "b-ent" {
-				board, _ := loadPttWebBoardsParseBoard(node, c, updateNanoTS)
+				board, _ := loadPttWebBoardsParseBoard(node, c, updateNanoTS, "")
 				if board == nil {
 					continue
 				}
@@ -62,10 +84,59 @@ func TryLoadPttWebPopularBoards(c *gin.Context) (boards []*schema.BoardSummary, 
 		}
 	}
 
-	_ = schema.ResetBoardIsPopular()
-	err = schema.UpdateBoardSummaries(boards, updateNanoTS)
-	if err != nil {
-		return nil, err
+	return boards, nil
+}
+
+func tryLoadPttWebWhiteListBoards(c *gin.Context, updateNanoTS types.NanoTS) (boards []*schema.BoardSummary, err error) {
+	nBoard := len(BRDNAME_WHITE_LIST_MAP)
+	boards = make([]*schema.BoardSummary, 0, nBoard)
+	for brdname, clsID := range BRDNAME_WHITE_LIST_MAP {
+		url := fmt.Sprintf("%v/cls/%v", types.PTTWEB_BASE_URL, clsID)
+
+		req, err := http.NewRequest("GET", url, nil)
+		if err != nil {
+			logrus.Errorf("unable to NewRequest: e: %v", err)
+			return nil, err
+		}
+
+		ctx, cancel := context.WithTimeout(req.Context(), time.Duration(types.EXPIRE_HTTP_REQUEST_TS)*time.Second)
+		defer cancel()
+
+		req = req.WithContext(ctx)
+
+		client := http.DefaultClient
+		res, err := client.Do(req)
+		if err != nil {
+			logrus.Errorf("unable to client.Do: e: %v", err)
+			return nil, err
+		}
+
+		doc, err := html.Parse(res.Body)
+		if err != nil {
+			logrus.Errorf("unable to Parse body: e: %v", err)
+			return nil, err
+		}
+
+		for node := range doc.Descendants() {
+			if node.DataAtom == atom.Div {
+				attrMap := attrsToMap(node.Attr)
+				theClass, ok := attrMap["class"]
+				if !ok {
+					continue
+				}
+				if theClass.Val == "b-ent" {
+					board, _ := loadPttWebBoardsParseBoard(node, c, updateNanoTS, brdname)
+					if board == nil {
+						continue
+					}
+
+					// already get the specific board.
+					// we can append to boards and break.
+					boards = append(boards, board)
+					break
+				}
+			}
+		}
 	}
 
 	return boards, nil
@@ -80,7 +151,7 @@ func attrsToMap(attrs []html.Attribute) (ret map[string]html.Attribute) {
 	return ret
 }
 
-func loadPttWebBoardsParseBoard(node *html.Node, c *gin.Context, updateNanoTS types.NanoTS) (board *schema.BoardSummary, err error) {
+func loadPttWebBoardsParseBoard(node *html.Node, c *gin.Context, updateNanoTS types.NanoTS, expectedBoardName string) (board *schema.BoardSummary, err error) {
 	boardName := ""
 	nUser := 0
 	boardClass := ""
@@ -118,6 +189,10 @@ func loadPttWebBoardsParseBoard(node *html.Node, c *gin.Context, updateNanoTS ty
 	}
 
 	if boardName == "" {
+		return nil, ErrInvalidBoardname
+	}
+
+	if expectedBoardName != "" && boardName != expectedBoardName {
 		return nil, ErrInvalidBoardname
 	}
 
@@ -165,16 +240,19 @@ func loadPttWebBoardsGetIsOver18(boardName string, c *gin.Context) (isOver18 boo
 		return false, err
 	}
 
-	nowNanoTS := types.NowNanoTS()
-	if nowNanoTS-board.IsOver18UpdateNanoTS < REFRESH_IS_OVER18_NANO_TS {
-		return board.IsOver18, nil
+	if board != nil {
+		nowNanoTS := types.NowNanoTS()
+		isOver18UpdateNanoTS := board.IsOver18UpdateNanoTS
+		if nowNanoTS-isOver18UpdateNanoTS < REFRESH_IS_OVER18_NANO_TS {
+			return board.IsOver18, nil
+		}
 	}
 
-	url := types.PTTWEB_BASE_URL + "/" + boardName + "/index.html"
+	url := types.PTTWEB_BASE_URL + "/bbs/" + boardName + "/index.html"
 
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
-		logrus.Errorf("unable to NewRequest: e: %v", err)
+		logrus.Errorf("api.loadPttWebBoardsGetIsOver18: %v: unable to NewRequest: e: %v", boardName, err)
 		return false, err
 	}
 
@@ -189,8 +267,13 @@ func loadPttWebBoardsGetIsOver18(boardName string, c *gin.Context) (isOver18 boo
 	client := http.DefaultClient
 	res, err := client.Do(req)
 	if err != nil {
-		logrus.Errorf("unable to client.Do: e: %v", err)
+		logrus.Errorf("api.loadPttWebBoardsGetIsOver18: %v: unable to client.Do: e: %v", boardName, err)
 		return false, err
+	}
+
+	if res.StatusCode >= 400 {
+		logrus.Errorf("api.loadPttWebBoardsGetIsOver18: %v: status code >= 400 statusCode: %v", boardName, res.StatusCode)
+		return false, ErrInvalidStatusCode
 	}
 
 	doc, err := html.Parse(res.Body)

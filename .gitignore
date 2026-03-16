@@ -31,3 +31,4 @@ coverage.txt
 /docker/docker_compose.env.me
 /docs/config/00-config-production.go.template.me
 /apidoc/build
+/docs/examples/home/bbs

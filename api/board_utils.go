@@ -1,9 +1,7 @@
 package api
 
 import (
-	"bufio"
 	"os"
-	"strings"
 
 	"github.com/Ptt-official-app/go-pttbbs/bbs"
 	"github.com/Ptt-official-app/go-pttbbs/ptttype"
@@ -13,6 +11,7 @@ import (
 	"github.com/Ptt-official-app/pttbbs-backend/types"
 	"github.com/Ptt-official-app/pttbbs-backend/utils"
 	"github.com/gin-gonic/gin"
+	"go.yaml.in/yaml/v3"
 
 	pttbbsapi "github.com/Ptt-official-app/go-pttbbs/api"
 )
@@ -38,8 +37,9 @@ func toBoardID(fboardID apitypes.FBoardID, remoteAddr string, userID bbs.UUserID
 }
 
 func validateBoardID(boardID bbs.BBoardID) (err error) {
-	isWhiteList, ok := BOARD_ID_WHITE_LIST_MAP[boardID]
-	if ok && isWhiteList {
+	brdname := boardID.ToBrdname()
+	_, ok := BRDNAME_WHITE_LIST_MAP[brdname]
+	if ok {
 		return nil
 	}
 
@@ -338,44 +338,27 @@ func checkUserReadBoard(userID bbs.UUserID, userBoardInfoMap map[bbs.BBoardID]*a
 }
 
 func RefreshBoardIDWhiteListMap() (nBoardID int, err error) {
-	if types.BOARD_ID_WHITE_LIST_MAP_FILENAME == "" {
+	if types.BRDNAME_WHITE_LIST_MAP_FILENAME == "" {
 		return 0, nil
 	}
 
-	file, err := os.Open(types.BOARD_ID_WHITE_LIST_MAP_FILENAME)
+	content, err := os.ReadFile(types.BRDNAME_WHITE_LIST_MAP_FILENAME)
 	if err != nil {
 		return 0, err
 	}
-	// Ensure the file is closed when the function exits
-	defer file.Close()
 
-	// Create a new Scanner for the file
-	scanner := bufio.NewScanner(file)
-
-	nBoardID = 0
-	boardIDWhiteListMap := map[bbs.BBoardID]bool{}
-	for scanner.Scan() {
-		line := scanner.Text()
-		line = strings.TrimSpace(line)
-
-		if line == "" {
-			continue
-		}
-
-		if line[0] == '#' {
-			continue
-		}
-		boardIDWhiteListMap[bbs.BBoardID(line)] = true
-		nBoardID++
-	}
-
-	// Check for errors during scanning
-	if err := scanner.Err(); err != nil {
+	// load to tmp map first, and then setup BRDNAME_WHITE_LIST_MAP as the tmp map.
+	boardIDWhiteListMap := map[string]int{}
+	err = yaml.Unmarshal(content, &boardIDWhiteListMap)
+	if err != nil {
 		return 0, err
 	}
 
 	// update BOARD_ID_WHITE_LIST_MAP
-	BOARD_ID_WHITE_LIST_MAP = boardIDWhiteListMap
+
+	nBoardID = len(boardIDWhiteListMap)
+
+	BRDNAME_WHITE_LIST_MAP = boardIDWhiteListMap
 
 	return nBoardID, nil
 }

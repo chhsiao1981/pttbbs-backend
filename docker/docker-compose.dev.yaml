@@ -1,0 +1,91 @@
+name: pttbbs-backend-dev
+
+services:
+  init-bbs:
+    image: ghcr.io/bbsdocker/imageptt
+    command: /srv/pttbbs-backend/scripts/init-ptt.sh /opt/home/bbs
+    volumes:
+      - type: bind
+        source: ..
+        target: /srv/pttbbs-backend
+      - type: bind
+        source: ../docs/examples/home
+        target: /opt/home
+    working_dir: /opt/home
+  init-bbs-clean-run:
+    image: ghcr.io/bbsdocker/imageptt
+    command: sh -c 'rm -rf /opt/home/bbs/run/*'
+    volumes:
+      - type: bind
+        source: ../docs/examples/home
+        target: /opt/home
+    depends_on:
+      init-bbs:
+        condition: service_completed_successfully
+  init-bbs-bin:
+    # 1. rm -rf /opt/home/bbs/bin
+    # 2. cp -R /home/bbs/bin /opt/home/bbs/bin
+    # 3. ls /opt/home/bbs/bin
+    image: ghcr.io/bbsdocker/imageptt
+    command: sh -c 'rm -rf /opt/home/bbs/bin && cp -R /home/bbs/bin /opt/home/bbs/bin && ls /opt/home/bbs/bin'
+    volumes:
+      - type: bind
+        source: ../docs/examples/home
+        target: /opt/home
+    depends_on:
+      init-bbs-clean-run:
+        condition: service_completed_successfully
+  pttbbs:
+    image: ghcr.io/bbsdocker/imageptt
+    ports:
+      - "127.0.0.1:8888:8888"
+    restart: always
+    volumes:
+      - type: bind
+        source: ../docs/examples/home/bbs
+        target: /home/bbs
+    depends_on:
+      init-bbs-bin:
+        condition: service_completed_successfully
+  go-pttbbs:
+    image: pttofficialapps/go-pttbbs:v0.26.2
+    ports:
+      - "127.0.0.1:3456:3456"
+    restart: always
+    volumes:
+      - type: bind
+        source: ../docs/examples/home/bbs
+        target: /home/bbs
+      - type: bind
+        source: ../docs/examples/etc/go-pttbbs
+        target: /etc/go-pttbbs
+    depends_on:
+      pttbbs:
+        condition: service_started
+  mongo:
+    image: mongo:8.0.11
+    restart: always
+    volumes:
+      - type: volume
+        source: mongo_data_db
+        target: /data/db
+      - type: volume
+        source: mongo_data_configdb
+        target: /data/configdb
+    cpus: 1
+    mem_limit: 1G
+    mem_reservation: 1G
+    ports:
+      - "127.0.0.1:27017:27017"
+  redis:
+    image: redis:6.0.9-alpine
+    restart: always
+    cpus: 1
+    mem_limit: 1G
+    mem_reservation: 1G
+    ports:
+      - "127.0.0.1:6379:6379"
+
+volumes:
+  mongo_data_db:
+  mongo_data_configdb:

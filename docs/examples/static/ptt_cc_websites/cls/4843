@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>分類看板 - 批踢踢實業坊</title>
+
+<link rel="stylesheet" type="text/css" href="//images.ptt.cc/bbs/v2.27/bbs-common.css">
+<link rel="stylesheet" type="text/css" href="//images.ptt.cc/bbs/v2.27/bbs-base.css" media="screen">
+<link rel="stylesheet" type="text/css" href="//images.ptt.cc/bbs/v2.27/bbs-custom.css">
+<link rel="stylesheet" type="text/css" href="//images.ptt.cc/bbs/v2.27/pushstream.css" media="screen">
+<link rel="stylesheet" type="text/css" href="//images.ptt.cc/bbs/v2.27/bbs-print.css" media="print">
+
+
+
+
+	</head>
+    <body>
+		
+<div id="topbar-container">
+	<div id="topbar" class="bbs-content">
+		<a id="logo" href="/bbs/">批踢踢實業坊</a>
+		<a class="right small" href="/about.html">關於我們</a>
+		<a class="right small" href="/contact.html">聯絡資訊</a>
+	</div>
+</div>
+
+<div id="main-container">
+	<div id="action-bar-container">
+		<div class="action-bar">
+			<div class="btn-group btn-group-cls">
+				<a class="btn" href="/bbs/hotboards.html">熱門看板</a>
+                <a class="btn selected" href="/cls/1">分類看板</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="b-list-container action-bar-margin bbs-screen">
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/IC-Card/index.html">
+                <div class="board-name">IC-Card</div>
+                <div class="board-nuser">1</div>
+                <div class="board-class">IC卡</div>
+                <div class="board-title">&#9678;[IC卡] HappyCash停用三周年</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/CareerPlan/index.html">
+                <div class="board-name">CareerPlan</div>
+                <div class="board-nuser">3</div>
+                <div class="board-class">人生</div>
+                <div class="board-title">&#9678;〔生涯規劃〕</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/cohabitation/index.html">
+                <div class="board-name">cohabitation</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">人生</div>
+                <div class="board-title">&#9678;[同居] 加上家人複雜更多,想清楚</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/learnyf/index.html">
+                <div class="board-name">learnyf</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">人生</div>
+                <div class="board-title">&#9678;[自學] 看板設定唯讀 不能發推文</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Refresh/index.html">
+                <div class="board-name">Refresh</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">人生</div>
+                <div class="board-title">&#9678;[充電] 看板設定唯讀 不能發推文</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/t-management/index.html">
+                <div class="board-name">t-management</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">人生</div>
+                <div class="board-title">&#9678;=時間管理版=活動時間調整請注意</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/L_LifePlan/index.html">
+                <div class="board-name">L_LifePlan</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">小組</div>
+                <div class="board-title">&#9678;人生規劃局組務板</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Lifeplan_Pol/index.html">
+                <div class="board-name">Lifeplan_Pol</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">小組</div>
+                <div class="board-title">&#9678;人生規劃局 無板主看板應徵板主 </div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Examination/index.html">
+                <div class="board-name">Examination</div>
+                <div class="board-nuser">6</div>
+                <div class="board-class">考試</div>
+                <div class="board-title">&#9678;[國考] 徵求上榜心得文</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/post-b.test/index.html">
+                <div class="board-name">post-b.test</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">考試</div>
+                <div class="board-title">&#9678;[後中西醫考試板] 祝福早日上岸</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/LifeisPicket/index.html">
+                <div class="board-name">LifeisPicket</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">板務</div>
+                <div class="board-title">&#9678;[省錢] 省錢板務板</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Lifeismoney/index.html">
+                <div class="board-name">Lifeismoney</div>
+                <div class="board-nuser"><span class="hl">462</span></div>
+                <div class="board-class">省錢</div>
+                <div class="board-title">&#9678;[省錢] 省錢板</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/homemaker/index.html">
+                <div class="board-name">homemaker</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">家事</div>
+                <div class="board-title">&#9678;家管板-天佑台灣</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/FamilyCircle/index.html">
+                <div class="board-name">FamilyCircle</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">家庭</div>
+                <div class="board-title">&#9678;和樂家庭板~</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/marriage/index.html">
+                <div class="board-name">marriage</div>
+                <div class="board-nuser"><span class="hl f3">43</span></div>
+                <div class="board-class">婚姻</div>
+                <div class="board-title">&#9678;[婚姻] 歡迎光臨婚姻板</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/CFP/index.html">
+                <div class="board-name">CFP</div>
+                <div class="board-nuser">1</div>
+                <div class="board-class">理財</div>
+                <div class="board-title">&#9678;理財規劃板~置底可以推薦優文</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/creditcard/index.html">
+                <div class="board-name">creditcard</div>
+                <div class="board-nuser"><span class="hl">94</span></div>
+                <div class="board-class">理財</div>
+                <div class="board-title">&#9678;[卡板] </div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/e-coupon/index.html">
+                <div class="board-name">e-coupon</div>
+                <div class="board-nuser"><span class="hl f3">33</span></div>
+                <div class="board-class">理財</div>
+                <div class="board-title">&#9678;新板主2025年4月25日上任</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/einvoice/index.html">
+                <div class="board-name">einvoice</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">理財</div>
+                <div class="board-title">&#9678;115年1-2期中獎發票 3/25 開獎</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Foreign_Inv/index.html">
+                <div class="board-name">Foreign_Inv</div>
+                <div class="board-nuser"><span class="hl f3">12</span></div>
+                <div class="board-class">理財</div>
+                <div class="board-title">&#9678;[海投] 噓文全面解禁</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/ForeignEX/index.html">
+                <div class="board-name">ForeignEX</div>
+                <div class="board-nuser">2</div>
+                <div class="board-class">理財</div>
+                <div class="board-title">&#9678;美元能降息幾次呢？</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Fund/index.html">
+                <div class="board-name">Fund</div>
+                <div class="board-nuser">3</div>
+                <div class="board-class">理財</div>
+                <div class="board-title">&#9678;[基金] 共同基金＆ETF 討論板</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Insurance/index.html">
+                <div class="board-name">Insurance</div>
+                <div class="board-nuser">5</div>
+                <div class="board-class">理財</div>
+                <div class="board-title">&#9678;保險板-★徵業務、站內信★劣退</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Loan/index.html">
+                <div class="board-name">Loan</div>
+                <div class="board-nuser">7</div>
+                <div class="board-class">理財</div>
+                <div class="board-title">&#9678;【銀行貸款專板】房貸-信貸-車貸</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/MobilePay/index.html">
+                <div class="board-name">MobilePay</div>
+                <div class="board-nuser">10</div>
+                <div class="board-class">理財</div>
+                <div class="board-title">&#9678;刷卡回饋問題請至信用卡板</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/tax/index.html">
+                <div class="board-name">tax</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">理財</div>
+                <div class="board-title">&#9678;[ 稅 ] 歡迎光臨稅版</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/GetMarry/index.html">
+                <div class="board-name">GetMarry</div>
+                <div class="board-nuser">1</div>
+                <div class="board-class">結婚</div>
+                <div class="board-title">&#9678;[結婚] 看板設定唯讀 不能發推文</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Bank_Service/index.html">
+                <div class="board-name">Bank_Service</div>
+                <div class="board-nuser">9</div>
+                <div class="board-class">銀行</div>
+                <div class="board-title">&#9678;[銀行服務板] </div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Divorce/index.html">
+                <div class="board-name">Divorce</div>
+                <div class="board-nuser">2</div>
+                <div class="board-class">離婚</div>
+                <div class="board-title">&#9678;離婚板</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/License/index.html">
+                <div class="board-name">License</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">證照</div>
+                <div class="board-title">&#9678;[證照] 禁止買賣文 [職安]新分類</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/give/index.html">
+                <div class="board-name">give</div>
+                <div class="board-nuser"><span class="hl f3">17</span></div>
+                <div class="board-class">贈送</div>
+                <div class="board-title">&#9678;[贈送] 標題不合置底文規定  刪</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/study/index.html">
+                <div class="board-name">study</div>
+                <div class="board-nuser">1</div>
+                <div class="board-class">讀書</div>
+                <div class="board-title">&#9678;歡迎交流讀書心得與技巧</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/StudyGroup/index.html">
+                <div class="board-name">StudyGroup</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">讀書</div>
+                <div class="board-title">&#9678;==讀書會板，發文標題請依格式==</div>
+            </a>
+        </div>
+        
+	</div>
+</div>
+
+		
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ6Y3BY9GW"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DZ6Y3BY9GW');
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-32365737-1', {
+    cookieDomain: 'ptt.cc',
+    legacyCookieDomain: 'ptt.cc'
+  });
+  ga('send', 'pageview');
+</script>
+
+
+		
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//images.ptt.cc/bbs/v2.27/bbs.js"></script>
+
+    </body>
+</html>

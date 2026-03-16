@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>分類看板 - 批踢踢實業坊</title>
+
+<link rel="stylesheet" type="text/css" href="//images.ptt.cc/bbs/v2.27/bbs-common.css">
+<link rel="stylesheet" type="text/css" href="//images.ptt.cc/bbs/v2.27/bbs-base.css" media="screen">
+<link rel="stylesheet" type="text/css" href="//images.ptt.cc/bbs/v2.27/bbs-custom.css">
+<link rel="stylesheet" type="text/css" href="//images.ptt.cc/bbs/v2.27/pushstream.css" media="screen">
+<link rel="stylesheet" type="text/css" href="//images.ptt.cc/bbs/v2.27/bbs-print.css" media="print">
+
+
+
+
+	</head>
+    <body>
+		
+<div id="topbar-container">
+	<div id="topbar" class="bbs-content">
+		<a id="logo" href="/bbs/">批踢踢實業坊</a>
+		<a class="right small" href="/about.html">關於我們</a>
+		<a class="right small" href="/contact.html">聯絡資訊</a>
+	</div>
+</div>
+
+<div id="main-container">
+	<div id="action-bar-container">
+		<div class="action-bar">
+			<div class="btn-group btn-group-cls">
+				<a class="btn" href="/bbs/hotboards.html">熱門看板</a>
+                <a class="btn selected" href="/cls/1">分類看板</a>
+			</div>
+		</div>
+	</div>
+
+	<div class="b-list-container action-bar-margin bbs-screen">
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Blind_Mobile/index.html">
+                <div class="board-name">Blind_Mobile</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">行動</div>
+                <div class="board-title">&#9678;盲用行動科技~歡迎您的加入</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/BlackBerry/index.html">
+                <div class="board-name">BlackBerry</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">系統</div>
+                <div class="board-title">&#9678;[黑莓] BlackBerry </div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/cls/3213">
+                <div class="board-name">TechHistory</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">科技</div>
+                <div class="board-title">&#931;數位科技歷史看板區</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Sub_DigiTech/index.html">
+                <div class="board-name">Sub_DigiTech</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">組務</div>
+                <div class="board-title">&#9678;數位科技小組DigitalTech組務板</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Audiophile/index.html">
+                <div class="board-name">Audiophile</div>
+                <div class="board-nuser"><span class="hl f3">12</span></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;[喇音] 注意 Line 加好友詐騙</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Bluetooth/index.html">
+                <div class="board-name">Bluetooth</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;Bluetooth 藍芽新科技</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/CDMA/index.html">
+                <div class="board-name">CDMA</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;[亞太] 2020 發文前，請先看板規</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/dictionary/index.html">
+                <div class="board-name">dictionary</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;[字典] 手機翻譯發音軟體也可討</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Headphone/index.html">
+                <div class="board-name">Headphone</div>
+                <div class="board-nuser"><span class="hl f3">46</span></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;[耳機] 徵文目錄&amp;小心站內信詐騙</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/iPod/index.html">
+                <div class="board-name">iPod</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;[iPod] iPod touch 7 </div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/MobileComm/index.html">
+                <div class="board-name">MobileComm</div>
+                <div class="board-nuser"><span class="hl">192</span></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;[通訊] 手機o平板o資費 請進!</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/MobilePicket/index.html">
+                <div class="board-name">MobilePicket</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;[通訊] MobileComm 板務建議&amp;檢舉</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/mobilesales/index.html">
+                <div class="board-name">mobilesales</div>
+                <div class="board-nuser"><span class="hl f3">47</span></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;[Mobile] 遵守版規，進桶看通知信</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/MP3-player/index.html">
+                <div class="board-name">MP3-player</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;MP3 隨身聽討論板</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Sony-style/index.html">
+                <div class="board-name">Sony-style</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;[SONY] SONY產品 綜合討論版</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/VoIP/index.html">
+                <div class="board-name">VoIP</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">資訊</div>
+                <div class="board-title">&#9678;[VoIP] 大家快來打網路電話</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Broad_Band/index.html">
+                <div class="board-name">Broad_Band</div>
+                <div class="board-nuser"><span class="hl f3">25</span></div>
+                <div class="board-class">網路</div>
+                <div class="board-title">&#9678;[寬頻板] 禁發廣告文/轉讓文</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Fix-Network/index.html">
+                <div class="board-name">Fix-Network</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">網路</div>
+                <div class="board-title">&#9678;固網電信</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/MOD_AP/index.html">
+                <div class="board-name">MOD_AP</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">網路</div>
+                <div class="board-title">&#9678;FON板轉為AP韌體討論板</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Digitalhome/index.html">
+                <div class="board-name">Digitalhome</div>
+                <div class="board-nuser"><span class="hl f3">12</span></div>
+                <div class="board-class">數位</div>
+                <div class="board-title">&#9678;[電視] 新年買新電視</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/EDR/index.html">
+                <div class="board-name">EDR</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">數位</div>
+                <div class="board-title">&#9678;行車紀錄器</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/VR/index.html">
+                <div class="board-name">VR</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">數位</div>
+                <div class="board-title">&#9678;我們活在一個實現夢想的年代。</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/DC/index.html">
+                <div class="board-name">DC</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">攝影</div>
+                <div class="board-title">&#9678;[ＤＣ] 發文前請注意置底板規唷:)</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/DC_SALE/index.html">
+                <div class="board-name">DC_SALE</div>
+                <div class="board-nuser"><span class="hl f3">27</span></div>
+                <div class="board-class">攝影</div>
+                <div class="board-title">&#9678;詐騙請去至底文回覆</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/DSLR/index.html">
+                <div class="board-name">DSLR</div>
+                <div class="board-nuser"><span class="hl f3">16</span></div>
+                <div class="board-class">攝影</div>
+                <div class="board-title">&#9678;[攝影] 2026</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Filming/index.html">
+                <div class="board-name">Filming</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">攝影</div>
+                <div class="board-title">&#9678;[攝錄] 撐過疫情 不要出門 平安</div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/Lomo/index.html">
+                <div class="board-name">Lomo</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">攝影</div>
+                <div class="board-title">&#9678;       └─ ○┌┬┐○  </div>
+            </a>
+        </div>
+        
+        <div class="b-ent">
+            <a class="board" href="/bbs/PhotoEdit/index.html">
+                <div class="board-name">PhotoEdit</div>
+                <div class="board-nuser"></div>
+                <div class="board-class">攝影</div>
+                <div class="board-title">&#9678;[攝影後製版] </div>
+            </a>
+        </div>
+        
+	</div>
+</div>
+
+		
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DZ6Y3BY9GW"></script>
+<script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-DZ6Y3BY9GW');
+</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-32365737-1', {
+    cookieDomain: 'ptt.cc',
+    legacyCookieDomain: 'ptt.cc'
+  });
+  ga('send', 'pageview');
+</script>
+
+
+		
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//images.ptt.cc/bbs/v2.27/bbs.js"></script>
+
+    </body>
+</html>

@@ -217,6 +217,7 @@ func main() {
 		return nil
 	})
 
+	logrus.Infof("main: IS_ALL_GUEST: %v", types.IS_ALL_GUEST)
 	if !types.IS_ALL_GUEST {
 		// retry load general boards
 		g.AddRunningJob(cron.RetryLoadGeneralBoards)

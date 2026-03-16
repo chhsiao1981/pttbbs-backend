@@ -11,9 +11,9 @@
 
 ## Overview
 
-go implementation of [middleware](https://hackmd.io/@twbbs/Root#%E6%9E%B6%E6%A7%8B%E5%9C%96).
+go implementation of [the middleware of PTT](https://hackmd.io/@twbbs/Root#%E6%9E%B6%E6%A7%8B%E5%9C%96).
 
-With [Ptt-official-app pttbbs](https://github.com/ptt-official-app/go-pttbbs), pttbbs-backend intends to be the web-based bbs.
+With [Ptt-official-app pttbbs](https://github.com/ptt-official-app/go-pttbbs), pttbbs-backend intends to be the modern BBS framework.
 
 ## Demo Site
 
@@ -22,21 +22,18 @@ With [Ptt-official-app pttbbs](https://github.com/ptt-official-app/go-pttbbs), p
 
 ## Getting Started
 
-You can try the [1-script setup by @tingyuchang](https://github.com/tingyuchang/demo-bbs-docker)
+You can start this project with the following steps:
 
-You can start with the [swagger api](https://doc.devptt.dev) and try the api.
+1. install [docker](https://www.docker.com/)
+2. `./scripts/start-getting-started.sh`
+3. `telnet localhost 8888`
+4. login with SYSOP/123123.
 
-You can copy the curl command from the link if you encounter CORS issue.
+## API
 
-You can go to [https://term.devptt.dev](https://term.devptt.dev) and check how the api affects the existing pttbbs in [www.devptt.dev](https://www.devptt.dev).
+You can try the api at [https://doc.devptt.dev](https://doc.devptt.dev).
 
-The test data (/home/bbs, adopted from [OCF PttID Data](https://ocf.tw/p/pttid/)) can be accessed [here](https://drive.google.com/file/d/1lHuqOYpPDmKayYAaf3UIiLRV1wCjF6bc/view?usp=sharing).
-Please setup the following config in pttbbs.conf to use the test data:
-
-```sh
-MAX_USERS = 200000 /* 最高註冊人數 */
-MAX_BOARD = 8192 /* 最大開板個數 */
-```
+You can copy the curl command from the api website if you encounter CORS issue.
 
 ## Coding Convention
 
@@ -44,20 +41,6 @@ We use the following libraries for coding convention:
 
 * [gotests](https://github.com/cweill/gotests) for test-generation
 * [gofumpt](https://github.com/mvdan/gofumpt) for formatting
-
-## docker-compose
-
-You can do the following to start with docker-compose:
-
-* copy `docs/etc/` to some etc directory (ex: `/etc/pttbbs-backend`).
-* copy `docs/config/01-config.docker.ini` to the etc directory as production.ini (ex: `cp 01-config.docker.ini /etc/pttbbs-backend/production.ini`).
-* copy `docker/docker_compose.env.template` to `docker/docker_compose.env` and modify the settings.
-* `./scripts/docker_initbbs.sh [BBSHOME] pttofficialapps/go-pttbbs:latest`
-* `docker-compose --env-file docker/docker_compose.env -f docker/docker-compose.yaml up -d`
-* register at `http://localhost:3457/account/register`
-* login at `http://localhost:3457/account/login`
-* `telnet localhost 8888` and use the account that you registered.
-* register SYSOP and guest.
 
 ## Discussing / Reviewing / Questioning the code
 
