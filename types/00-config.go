@@ -89,9 +89,9 @@ var (
 	IS_ALL_GUEST = false
 
 	// pttweb-hotboard-url
-	PTTWEB_HOTBOARD_URL = "http://localhost:3457/static/ptt_cc_websites/HotBoards.html"
+	PTTWEB_HOTBOARD_URL = "http://localhost:3457/static/ptt_cc_websites/bbs/HotBoards.html"
 
-	// pttweb-base-url
+	// pttweb-base-url (excluding bbs/, man/, cls/)
 	PTTWEB_BASE_URL = "http://localhost:3457/static/ptt_cc_websites"
 
 	// expire-http-request-ts
@@ -100,5 +100,5 @@ var (
 	// max-popular-boards
 	MAX_POPULAR_BOARDS = 128
 
-	BOARD_ID_WHITE_LIST_MAP_FILENAME = ""
+	BRDNAME_WHITE_LIST_MAP_FILENAME = ""
 )

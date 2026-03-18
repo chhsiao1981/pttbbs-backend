@@ -11,9 +11,9 @@
 
 ## 概觀
 
-這裡是使用 golang 來達成 [中介應用層](https://hackmd.io/@twbbs/Root#%E6%9E%B6%E6%A7%8B%E5%9C%96).
+這裡是使用 golang 來達成 [PTT 的 中介應用層](https://hackmd.io/@twbbs/Root#%E6%9E%B6%E6%A7%8B%E5%9C%96).
 
-與 [Ptt-official-app pttbbs](https://github.com/ptt-official-app/go-pttbbs) 一起成為 web-based BBS.
+與 [Ptt-official-app pttbbs](https://github.com/ptt-official-app/go-pttbbs) 一起成為現代的 BBS 架構.
 
 ## Demo Site
 
@@ -22,22 +22,18 @@
 
 ## Getting Started
 
-您可以試著使用 [@tingyuchang 所開發的 1-script setup](https://github.com/tingyuchang/demo-bbs-docker)
+您可以用以下方式快速開始:
 
-您可以到 [swagger api](https://doc.devptt.dev) 並且試著使用 api.
+1. 安裝 [docker](https://www.docker.com/)
+2. `./scripts/start-getting-started.sh`
+3. `telnet localhost 8888`
+4. 使用 SYSOP/123123 登入.
 
-如果您在 swagger 網頁裡遇到 CORS 的問題. 你可以在網頁裡 copy
-curl 指令測試.
+## API
 
-您可以到 [https://term.devptt.dev](https://term.devptt.dev) 確認 api 如何影響在 [www.devptt.dev](https://www.devptt.dev) 裡既有的 pttbbs.
+您可以到 [https://doc.devptt.dev](https://doc.devptt.dev) 試著使用 api.
 
-使用的測試資料 (/home/bbs, 從 [OCF PttID Data](https://ocf.tw/p/pttid/) 更改而來) 在[這裡](https://drive.google.com/file/d/1lHuqOYpPDmKayYAaf3UIiLRV1wCjF6bc/view?usp=sharing).
-當使用測試資料時, 請在 pttbbs.conf 做以下的設定:
-
-```sh
-MAX_USERS = 200000 /* 最高註冊人數 */
-MAX_BOARD = 8192 /* 最大開板個數 */
-```
+如果您在 api 網頁裡遇到 CORS 的問題. 你可以在網頁裡 copy `curl` 指令測試.
 
 ## Coding Convention
 
@@ -45,20 +41,6 @@ MAX_BOARD = 8192 /* 最大開板個數 */
 
 * [gotests](https://github.com/cweill/gotests) for test-generation
 * [gofumpt](https://github.com/mvdan/gofumpt) for formatting
-
-## docker-compose
-
-您可以使用以下方式來使用 docker-compose:
-
-* 將 `docs/etc/` copy 到你自訂的 etc directory (ex: `/etc/pttbbs-backend`).
-* 將 `docs/config/01-config.docker.ini` copy 到你自訂的 etc directory 為 production.ini (ex: `cp 01-config.docker.ini /etc/pttbbs-backend/production.ini`).
-* 將 `docker/docker/docker_compose.env.template` copy 到 `docker/docker_compose.env` 並且更改相對應的設定.
-* `./scripts/docker_initbbs.sh [BBSHOME] pttofficialapps/go-pttbbs:latest`
-* `docker-compose --env-file docker/docker_compose.env -f docker/docker-compose.yaml up -d`
-* 在 `http://localhost:3457/account/register` 做 register
-* 在 `http://localhost:3457/account/login` 做 login
-* `telnet localhost 8888` 並且使用您剛剛登錄的帳號使用.
-* 第一次使用時. 須先將 SYSOP 和 guest 建立起來.
 
 ## Discussing / Reviewing / Questioning the code
 

@@ -60,6 +60,8 @@ var (
 	ErrPermBoardPostPostLimit = errors.New("reached post limit")
 
 	ErrPermBoardEditPermission = errors.New("no board edit permission")
+
+	ErrInvalidStatusCode = errors.New("invalid status code")
 )
 
 func ErrBoardCooldown(diffNanoTS types.NanoTS) error {
