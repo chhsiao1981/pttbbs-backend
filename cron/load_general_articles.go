@@ -176,7 +176,7 @@ func loadGeneralArticlesPtt(boardID bbs.BBoardID) (err error) {
 	for {
 		articleSummaries, newNextIdx, err := loadGeneralArticlesCorePtt(boardID, nextIdx, updateNanoTS)
 		if err != nil {
-			logrus.Errorf("cron.loadGeneralArticlesPtt: unable to loadGeneralArticlesCorePtt: nextIdx: %v e: %v", nextIdx, err)
+			logrus.Errorf("cron.loadGeneralArticlesPtt: unable to loadGeneralArticlesCorePtt: board: %v nextIdx: %v e: %v", boardID, nextIdx, err)
 			return err
 		}
 		count += len(articleSummaries)
