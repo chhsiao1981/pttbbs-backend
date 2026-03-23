@@ -12,7 +12,7 @@ import (
 func RetryLoadPopularBoards(ctx context.Context) error {
 	time.Sleep(5 * time.Second)
 
-	nBoardID, err := api.RefreshBoardIDWhiteListMap()
+	nBoardID, err := api.RefreshBrdnameWhiteListMap()
 	if err != nil {
 		logrus.Warnf("RetryLoadPopularBoards: unable to refresh BOARD_ID_WHITE_LIST_MAP: e: %v", err)
 	}

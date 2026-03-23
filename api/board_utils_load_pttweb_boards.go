@@ -32,6 +32,7 @@ func TryLoadPttWebPopularBoards(c *gin.Context) (boards []*schema.BoardSummary, 
 	}
 
 	boards = append(popularBoards, whiteListBoards...)
+
 	_ = schema.ResetBoardIsPopular()
 	err = schema.UpdateBoardSummaries(boards, updateNanoTS)
 	if err != nil {
@@ -189,6 +190,11 @@ func loadPttWebBoardsParseBoard(node *html.Node, c *gin.Context, updateNanoTS ty
 	}
 
 	if boardName == "" {
+		return nil, ErrInvalidBoardname
+	}
+
+	is_invalid, ok := BRDNAME_BLACK_LIST_MAP[boardName]
+	if ok && is_invalid {
 		return nil, ErrInvalidBoardname
 	}
 

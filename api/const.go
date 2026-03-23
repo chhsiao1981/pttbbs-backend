@@ -34,6 +34,8 @@ var (
 	}
 
 	BRDNAME_WHITE_LIST_MAP = map[string]int{}
+
+	BRDNAME_BLACK_LIST_MAP = map[string]bool{}
 )
 
 const (

@@ -15,7 +15,7 @@ func RefreshBoardIDWhiteListMapAllGuestWrapper(c *gin.Context) {
 }
 
 func RefreshBoardIDWhiteListMapAllGuest(remoteAddr string, user *UserInfo, params interface{}, c *gin.Context) (result interface{}, statusCode int, err error) {
-	nBoardID, err := RefreshBoardIDWhiteListMap()
+	nBoardID, err := RefreshBrdnameWhiteListMap()
 	if err != nil {
 		return 0, 500, err
 	}
