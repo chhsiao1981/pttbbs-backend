@@ -1,6 +1,6 @@
 pre-commit:
   parallel: true
-  commands:
-    lint:
-      run: golangci-lint run
-
+  jobs:
+    - name: lint
+      glob: "*.go"
+      run: ./scripts/lint.sh
