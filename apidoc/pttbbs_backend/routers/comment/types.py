@@ -56,3 +56,7 @@ class CommentReportView(BaseModel):
     post: Post
     comment: Comment
     comment_report: CommentReport
+
+
+class CommentNotification(BaseModel):
+    ...

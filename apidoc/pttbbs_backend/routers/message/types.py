@@ -33,3 +33,7 @@ class PrivateMessageReportView(BaseModel):
     creator: Person
     private_message: PrivateMessage
     private_message_report: PrivateMessageReport
+
+
+class PrivateMessageNotification(BaseModel):
+    ...

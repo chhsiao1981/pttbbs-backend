@@ -76,3 +76,7 @@ class PostReportView(BaseModel):
     community: Community
     post: Post
     post_report: PostReport
+
+
+class PostNotification(BaseModel):
+    ...

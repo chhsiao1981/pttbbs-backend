@@ -20,6 +20,7 @@ type ID = int
 type DbURL = str
 
 type PaginationCursor = str
+type SensitiveString = str
 
 
 class Perm(BaseModel):
@@ -150,3 +151,6 @@ type ReportType = Literal[
     'comments',
     'private_messages',
     'communities']
+
+type NotificationType = Literal[
+    'mention', 'reply', 'subscribed', 'private_message', 'mod_action']

@@ -146,22 +146,22 @@ def delete_comment(params: DeleteCommentParams) -> Result:
     ...
 
 
-@router.post('/admin/tagline', tags=['site'])
+@router.post('/admin/tagline', tags=['tagline'])
 def create_tagline(params: CreateTagLineParams) -> CreateTagLineResult:
     ...
 
 
-@router.put('/admin/tagline', tags=['site'])
+@router.put('/admin/tagline', tags=['tagline'])
 def edit_tagline(params: EditTagLineParams) -> EditTagLineResult:
     ...
 
 
-@router.delete('/admin/tagline', tags=['site'])
+@router.delete('/admin/tagline', tags=['tagline'])
 def delete_tagline(params: DeleteTagLineParams) -> Result:
     ...
 
 
-@router.get('/admin/tagline/list', tags=['site'])
+@router.get('/admin/tagline/list', tags=['tagline'])
 def list_taglines(params: Annotated[ListParams, Query()]) -> ListTagLineResult:
     ...
 

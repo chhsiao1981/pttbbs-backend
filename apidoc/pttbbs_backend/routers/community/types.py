@@ -83,3 +83,23 @@ class CommunityTagsView(BaseModel):
     name: str
     ap_id: DbURL
     id: ID
+
+
+class MultiCommunityView(BaseModel):
+    pass
+
+
+class CommunityModeratorView(BaseModel):
+    pass
+
+
+class CommunityFollowerView(BaseModel):
+    pass
+
+
+class CommunityView(BaseModel):
+    pass
+
+
+class ModActionNotification(BaseModel):
+    ...

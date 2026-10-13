@@ -9,6 +9,7 @@ from ...types import (
     PostListingMode,
     PostNotificationMode,
     PostSortType,
+    SensitiveString,
     Time3339,
 )
 from .person import Person
@@ -113,9 +114,48 @@ class LocalUser(BaseModel):
     default_post_sort_type: PostSortType
     theme: str
     show_nsfw: bool
-    email: str
+    email: SensitiveString
     person_id: ID
     id: ID
+
+
+class PartialLocalUser(BaseModel):
+    show_person_votes: bool | None = None
+    hide_posts_with_media: bool | None = None
+    auto_mark_fetched_posts_as_read: bool | None = None
+    show_upvote_percentage: bool | None = None
+    show_downvotes: VoteShow | None = None
+    show_upvotes: bool | None = None
+    show_score: bool | None = None
+    collapse_bot_comments: bool | None = None
+    private_messages_enabled: bool | None = None
+    animated_images_enabled: bool | None = None
+    infinite_scroll_enabled: bool | None = None
+    open_links_in_new_tab: bool | None = None
+    blocking_keywords: list[str] | None = None
+    discussion_languages: list[ID] | None = None
+    show_read_posts: bool | None = None
+    show_bot_accounts: bool | None = None
+
+    bot_account: bool | None = None
+
+    send_notifications_to_email: bool | None = None
+    show_media: bool | None = None
+    show_avatars: bool | None = None
+    matrix_user_id: ID | None = None
+    bio: str | None = None
+    email: SensitiveString | None = None
+    display_name: str | None = None
+    interface_language: str | None = None
+    default_comment_sort_type: CommentSortType | None = None
+    default_items_per_page: int | None = None
+    default_post_time_range_seconds: float | None = None
+    default_post_sort_type: PostSortType | None = None
+    post_listing_mode: PostListingMode | None = None
+    default_listing_type: ListingType | None = None
+    theme: str | None = None
+    blur_nsfw: bool | None = None
+    show_nsfw: bool | None = None
 
 
 class LocalUserView(BaseModel):

@@ -6,7 +6,15 @@ from ..message.types import PrivateMessageReportView
 from ..post.types import VoteView
 from ..report.types import ReportCombinedView
 from ..site.types import TagLine
-from ..types import ID, ListParams, ListResult, ReportSortType, ReportType, Time3339
+from ..types import (
+    ID,
+    ListParams,
+    ListResult,
+    ReportSortType,
+    ReportType,
+    SensitiveString,
+    Time3339,
+)
 from ..user.types import (
     LocalUserSortType,
     LocalUserView,

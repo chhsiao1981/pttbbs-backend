@@ -17,6 +17,6 @@ class LocalImage(BaseModel):
 
 
 class LocalImageView(BaseModel):
-    post: Post
+    post: Post | None = None
     person: Person
     local_image: LocalImage
