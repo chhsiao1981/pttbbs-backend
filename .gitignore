@@ -39,3 +39,4 @@ coverage.txt
 # Added by cargo
 
 /target
+/.env

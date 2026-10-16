@@ -5630,7 +5630,22 @@ dependencies = [
 ]
 
 [[package]]
-name = "pttbbs-backend-server"
+name = "pttbbs-db-schema-file"
+version = "0.45.0"
+dependencies = [
+ "diesel",
+ "diesel-derive-enum",
+ "diesel-derive-newtype",
+ "diesel-uplete",
+ "diesel_ltree",
+ "lemmy_db_schema_file",
+ "serde",
+ "strum 0.28.0",
+ "ts-rs",
+]
+
+[[package]]
+name = "pttbbs-server"
 version = "0.45.0"
 dependencies = [
  "clap",

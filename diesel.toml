@@ -1,8 +1,75 @@
 [print_schema]
-file = "lemmy/crates/db_schema_file/src/schema.rs"
-patch_file = "lemmy/crates/db_schema_file/diesel_ltree.patch"
+file = "crates/db_schema_file/src/schema.rs"
+# These tables are in the lemmy crates instead.
+filter = { except_tables = [
+    "previously_run_sql",
+    "admin_purge_comment",
+    "admin_purge_community",
+    "admin_purge_person",
+    "admin_purge_post",
+    "comment_actions",
+    "comment_aggregates",
+    "comment_reply",
+    "comment_report",
+    "community",
+    "community_actions",
+    "community_aggregates",
+    "community_language",
+    "email_verification",
+    "federation_allowlist",
+    "federation_blocklist",
+    "federation_queue_state",
+    "instance",
+    "instance_actions",
+    "language",
+    "local_image",
+    "local_site",
+    "local_site_rate_limit",
+    "local_user",
+    "local_user_language",
+    "local_user_vote_display_mode",
+    "login_token",
+    "mod_add_community",
+    "mod_ban_from_community",
+    "mod_feature_post",
+    "mod_hide_community",
+    "mod_lock_post",
+    "mod_remove_comment",
+    "mod_remove_community",
+    "mod_remove_post",
+    "mod_transfer_community",
+    "oauth_account",
+    "oauth_provider",
+    "password_reset_request",
+    "person",
+    "person_aggregates",
+    "person_ban",
+    "person_mention",
+    "post_actions",
+    "post_aggregates",
+    "post_report",
+    "registration_application",
+    "site",
+    "site_aggregates",
+    "site_language",
+    "captcha_answer",
+    "custom_emoji",
+    "custom_emoji_keyword",
+    "image_details",
+    "mod_add",
+    "mod_ban",
+    "private_message",
+    "private_message_report",
+    "received_activity",
+    "remote_image",
+    "secret",
+    "sent_activity",
+    "tagline",
+] }
+
 # Required for https://github.com/adwhit/diesel-derive-enum
-custom_type_derives = ["diesel::query_builder::QueryId"]
-# This table is in the lemmy_diesel_utils crate instead.
-filter = { except_tables = ["previously_run_sql"] }
+custom_type_derives = [
+    "diesel::query_builder::QueryId",
+]
+
 allow_tables_to_appear_in_same_query_config = "fk_related_tables"

@@ -1,5 +1,5 @@
 [package]
-name = "pttbbs-backend-server"
+name = "pttbbs-server"
 version.workspace = true
 edition.workspace = true
 description.workspace = true
