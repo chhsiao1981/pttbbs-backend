@@ -1,67 +1,11 @@
 // @generated automatically by Diesel CLI.
 
+use lemmy_db_schema_file::schema::{comment, post};
+
 pub mod sql_types {
     #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
     #[diesel(postgres_type(name = "comment_type"))]
     pub struct CommentType;
-
-    #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
-    #[diesel(postgres_type(name = "ltree"))]
-    pub struct Ltree;
-}
-
-diesel::table! {
-    use diesel::sql_types::*;
-    use super::sql_types::Ltree;
-
-    comment (id) {
-        id -> Int4,
-        creator_id -> Int4,
-        post_id -> Int4,
-        content -> Text,
-        removed -> Bool,
-        published -> Timestamptz,
-        updated -> Nullable<Timestamptz>,
-        deleted -> Bool,
-        #[max_length = 255]
-        ap_id -> Varchar,
-        local -> Bool,
-        path -> Ltree,
-        distinguished -> Bool,
-        language_id -> Int4,
-    }
-}
-
-diesel::table! {
-    post (id) {
-        id -> Int4,
-        #[max_length = 200]
-        name -> Varchar,
-        #[max_length = 2000]
-        url -> Nullable<Varchar>,
-        body -> Nullable<Text>,
-        creator_id -> Int4,
-        community_id -> Int4,
-        removed -> Bool,
-        locked -> Bool,
-        published -> Timestamptz,
-        updated -> Nullable<Timestamptz>,
-        deleted -> Bool,
-        nsfw -> Bool,
-        embed_title -> Nullable<Text>,
-        embed_description -> Nullable<Text>,
-        thumbnail_url -> Nullable<Text>,
-        #[max_length = 255]
-        ap_id -> Varchar,
-        local -> Bool,
-        embed_video_url -> Nullable<Text>,
-        language_id -> Int4,
-        featured_community -> Bool,
-        featured_local -> Bool,
-        url_content_type -> Nullable<Text>,
-        alt_text -> Nullable<Text>,
-        scheduled_publish_time -> Nullable<Timestamptz>,
-    }
 }
 
 diesel::table! {

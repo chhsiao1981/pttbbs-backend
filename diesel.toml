@@ -1,5 +1,6 @@
 [print_schema]
 file = "crates/db_schema_file/src/schema.rs"
+patch_file = "crates/db_schema_file/lemmy_post_comment.patch"
 # These tables are in the lemmy crates instead.
 filter = { except_tables = [
     "previously_run_sql",
