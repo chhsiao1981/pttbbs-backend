@@ -4,13 +4,13 @@ index 239f5a7..dafb883 100644
 +++ b/crates/db_schema_file/src/schema.rs
 @@ -1,67 +1,11 @@
  // @generated automatically by Diesel CLI.
- 
+
 +use lemmy_db_schema_file::schema::{comment, post};
 +
  pub mod sql_types {
      #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
-     #[diesel(postgres_type(name = "comment_type"))]
-     pub struct CommentType;
+     #[diesel(postgres_type(name = "comment_type_enum"))]
+     pub struct CommentTypeEnum;
 -
 -    #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
 -    #[diesel(postgres_type(name = "ltree"))]
@@ -70,5 +70,5 @@ index 239f5a7..dafb883 100644
 -        scheduled_publish_time -> Nullable<Timestamptz>,
 -    }
  }
- 
+
  diesel::table! {

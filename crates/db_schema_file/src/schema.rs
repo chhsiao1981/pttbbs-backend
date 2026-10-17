@@ -4,18 +4,18 @@ use lemmy_db_schema_file::schema::{comment, post};
 
 pub mod sql_types {
     #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
-    #[diesel(postgres_type(name = "comment_type"))]
-    pub struct CommentType;
+    #[diesel(postgres_type(name = "comment_type_enum"))]
+    pub struct CommentTypeEnum;
 }
 
 diesel::table! {
     use diesel::sql_types::*;
-    use super::sql_types::CommentType;
+    use super::sql_types::CommentTypeEnum;
 
     ptt_comment (id) {
         id -> Uuid,
         comment_id -> Int4,
-        the_type -> Nullable<CommentType>,
+        the_type -> Nullable<CommentTypeEnum>,
         ip -> Nullable<Text>,
         host -> Nullable<Text>,
         the_date -> Nullable<Text>,

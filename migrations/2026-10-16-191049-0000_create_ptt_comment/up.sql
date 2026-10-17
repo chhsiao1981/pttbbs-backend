@@ -1,10 +1,10 @@
 -- Your SQL goes here
-CREATE TYPE comment_type AS ENUM ('recommend', 'boo', 'comment', 'reply', 'forward');
+CREATE TYPE comment_type_enum AS ENUM ('recommend', 'boo', 'comment', 'reply', 'forward');
 
 CREATE TABLE ptt_comment (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     comment_id INT NOT NULL,
-    the_type comment_type,
+    the_type comment_type_enum,
     ip TEXT,
     host TEXT,
     the_date TEXT,
