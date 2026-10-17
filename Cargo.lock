@@ -5642,6 +5642,7 @@ dependencies = [
  "serde",
  "strum 0.28.0",
  "ts-rs",
+ "uuid",
 ]
 
 [[package]]

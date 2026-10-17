@@ -19,6 +19,7 @@ diesel-derive-enum = { workspace = true, optional = true }
 diesel-uplete = { workspace = true, optional = true }
 diesel-derive-newtype = { workspace = true, optional = true }
 lemmy_db_schema_file = { workspace = true }
+uuid = { workspace = true }
 
 [lints]
 workspace = true
