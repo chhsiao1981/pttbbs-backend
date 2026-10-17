@@ -1,6 +1,8 @@
 use core::default::Default;
-use diesel_derive_newtype::DieselNewType;
 use serde::{Deserialize, Serialize};
+
+#[cfg(feature = "full")]
+use diesel_derive_enum::DbEnum;
 
 #[derive(Debug, Serialize, Deserialize, Clone, Copy, PartialEq, Eq, Default, Hash)]
 #[serde(rename_all = "snake_case")]
