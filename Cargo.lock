@@ -5630,6 +5630,37 @@ dependencies = [
 ]
 
 [[package]]
+name = "pttbbs-db-schema"
+version = "0.45.0"
+dependencies = [
+ "anyhow",
+ "bcrypt",
+ "chrono",
+ "derive-new",
+ "diesel",
+ "diesel-async",
+ "diesel-uplete",
+ "diesel_ltree",
+ "i-love-jesus",
+ "lemmy_db_schema 0.45.0",
+ "lemmy_db_schema_file",
+ "lemmy_diesel_utils",
+ "lemmy_utils 0.45.0",
+ "moka",
+ "pretty_assertions",
+ "pttbbs-db-schema-file",
+ "serde",
+ "serde_json",
+ "serde_with",
+ "serial_test",
+ "strum 0.28.0",
+ "tokio",
+ "ts-rs",
+ "url",
+ "uuid",
+]
+
+[[package]]
 name = "pttbbs-db-schema-file"
 version = "0.45.0"
 dependencies = [

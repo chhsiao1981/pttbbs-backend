@@ -45,6 +45,7 @@ members = [
   "lemmy/crates/server",
 
   "crates/db_schema_file",
+  "crates/db_schema",
 ]
 
 [workspace.package]
@@ -97,6 +98,14 @@ allow_attributes = "deny"
 unchecked_time_subtraction = "deny"
 
 [workspace.dependencies]
+pttbbs-db-schema = { path = "./crates/db_schema_file", features = [
+  "full",
+] }
+
+pttbbs-db-schema-file = { path = "./crates/db_schema_file", features = [
+  "full",
+] }
+
 lemmy_api = { path = "./lemmy/crates/api/api" }
 lemmy_api_common = { path = "./lemmy/crates/api/api_common" }
 lemmy_api_crud = { path = "./lemmy/crates/api/api_crud" }
@@ -109,7 +118,9 @@ lemmy_utils = { path = "./lemmy/crates/utils", features = [
   "full",
 ] }
 lemmy_db_schema = { path = "./lemmy/crates/db_schema" }
-lemmy_db_schema_file = { path = "./lemmy/crates/db_schema_file" }
+lemmy_db_schema_file = { path = "./lemmy/crates/db_schema_file", features = [
+  "full",
+] }
 lemmy_diesel_utils = { path = "./lemmy/crates/diesel_utils" }
 lemmy_api_utils = { path = "./lemmy/crates/api/api_utils" }
 lemmy_routes = { path = "./lemmy/crates/routes" }
