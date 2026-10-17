@@ -1,11 +1,11 @@
 diff --git a/crates/db_schema_file/src/schema.rs b/crates/db_schema_file/src/schema.rs
-index 239f5a7..dafb883 100644
+index 0f3489d..80b87c3 100644
 --- a/crates/db_schema_file/src/schema.rs
 +++ b/crates/db_schema_file/src/schema.rs
 @@ -1,67 +1,11 @@
  // @generated automatically by Diesel CLI.
 
-+use lemmy_db_schema_file::schema::{comment, post};
++pub use lemmy_db_schema_file::schema::{comment, post};
 +
  pub mod sql_types {
      #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
@@ -72,3 +72,20 @@ index 239f5a7..dafb883 100644
  }
 
  diesel::table! {
+@@ -110,15 +54,8 @@ diesel::table! {
+     }
+ }
+
+-diesel::joinable!(comment -> post (post_id));
+ diesel::joinable!(ptt_comment -> comment (comment_id));
+ diesel::joinable!(ptt_post -> post (post_id));
+ diesel::joinable!(ptt_post_comment -> post (post_id));
+
+-diesel::allow_tables_to_appear_in_same_query!(
+-    comment,
+-    post,
+-    ptt_comment,
+-    ptt_post,
+-    ptt_post_comment,
+-);
++diesel::allow_tables_to_appear_in_same_query!(ptt_comment, ptt_post, ptt_post_comment);

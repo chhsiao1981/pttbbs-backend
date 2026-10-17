@@ -1,6 +1,6 @@
 // @generated automatically by Diesel CLI.
 
-use lemmy_db_schema_file::schema::{comment, post};
+pub use lemmy_db_schema_file::schema::{comment, post};
 
 pub mod sql_types {
     #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
@@ -19,8 +19,8 @@ diesel::table! {
         ip -> Nullable<Text>,
         host -> Nullable<Text>,
         the_date -> Nullable<Text>,
-        dbcs -> Nullable<Text>,
-        edit_time_us -> Nullable<Timestamptz>,
+        dbcs -> Nullable<Bytea>,
+        edit_time -> Nullable<Timestamptz>,
         content_md5 -> Nullable<Text>,
     }
 }
@@ -54,15 +54,8 @@ diesel::table! {
     }
 }
 
-diesel::joinable!(comment -> post (post_id));
 diesel::joinable!(ptt_comment -> comment (comment_id));
 diesel::joinable!(ptt_post -> post (post_id));
 diesel::joinable!(ptt_post_comment -> post (post_id));
 
-diesel::allow_tables_to_appear_in_same_query!(
-    comment,
-    post,
-    ptt_comment,
-    ptt_post,
-    ptt_post_comment,
-);
+diesel::allow_tables_to_appear_in_same_query!(ptt_comment, ptt_post, ptt_post_comment);

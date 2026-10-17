@@ -8,8 +8,8 @@ CREATE TABLE ptt_comment (
     ip TEXT,
     host TEXT,
     the_date TEXT,
-    dbcs TEXT,
-    edit_time_us TIMESTAMPTZ,
+    dbcs BYTEA,
+    edit_time TIMESTAMPTZ,
     content_md5 TEXT,
     CONSTRAINT fk_comment
         FOREIGN KEY (comment_id)
