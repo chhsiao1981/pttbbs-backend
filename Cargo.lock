@@ -5683,9 +5683,21 @@ dependencies = [
  "clap",
  "lemmy_server",
  "lemmy_utils 0.45.0",
+ "pttbbs-utils",
  "tokio",
  "tracing",
  "tracing-subscriber",
+]
+
+[[package]]
+name = "pttbbs-utils"
+version = "0.45.0"
+dependencies = [
+ "deser-hjson",
+ "doku",
+ "lemmy_utils 0.45.0",
+ "serde",
+ "smart-default",
 ]
 
 [[package]]

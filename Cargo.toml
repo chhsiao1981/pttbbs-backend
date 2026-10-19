@@ -46,6 +46,7 @@ members = [
 
   "crates/db_schema_file",
   "crates/db_schema",
+  "crates/utils",
 ]
 
 [workspace.package]
@@ -98,6 +99,7 @@ allow_attributes = "deny"
 unchecked_time_subtraction = "deny"
 
 [workspace.dependencies]
+pttbbs-utils = { path = "./crates/utils" }
 pttbbs-db-schema = { path = "./crates/db_schema_file", features = [
   "full",
 ] }
@@ -163,6 +165,7 @@ diesel = { version = "2.3.7", features = [
 ] }
 diesel_migrations = "2.3.1"
 diesel-async = "0.8.0"
+deser-hjson = { version = "2.2.5" }
 serde = { version = "1.0.228", features = [
   "derive",
 ] }
@@ -269,6 +272,7 @@ extism = { version = "1.20.0", default-features = false, features = [
 extism-convert = "1.20.0"
 unified-diff = "0.2.1"
 diesel-uplete = { version = "0.2.0" }
+smart-default = { version = "0.7.1" }
 
 # Speedup RSA key generation
 # https://github.com/RustCrypto/RSA/blob/master/README.md#example
