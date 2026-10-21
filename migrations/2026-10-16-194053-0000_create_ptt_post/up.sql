@@ -2,6 +2,7 @@
 CREATE TABLE ptt_post (
     id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
     post_id INT NOT NULL,
+    ptt_id TEXT,
     class TEXT, -- classes defined by moderators.
     content TEXT, -- json-encoded Rune[][]. body is markdown or html.
     money INT DEFAULT 0 NOT NULL,

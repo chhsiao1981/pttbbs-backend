@@ -23,6 +23,7 @@ use serde_with::skip_serializing_none;
 pub struct PttPost {
     pub id: uuid::Uuid,
     pub post_id: i32,
+    pub ptt_id: Option<String>,
 
     /// classes defined by moderators.
     pub class: Option<String>,

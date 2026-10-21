@@ -1,6 +1,6 @@
 // @generated automatically by Diesel CLI.
 
-pub use lemmy_db_schema_file::schema::{comment, post};
+pub use lemmy_db_schema_file::schema::{comment, community, post};
 
 pub mod sql_types {
     #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
@@ -15,6 +15,7 @@ diesel::table! {
     ptt_comment (id) {
         id -> Uuid,
         comment_id -> Int4,
+        ptt_id -> Nullable<Text>,
         the_type -> Nullable<CommentTypeEnum>,
         ip -> Nullable<Text>,
         host -> Nullable<Text>,
@@ -26,9 +27,32 @@ diesel::table! {
 }
 
 diesel::table! {
+    ptt_community (id) {
+        id -> Uuid,
+        community_id -> Int4,
+        ptt_brdname -> Nullable<Text>,
+        bclass -> Nullable<Text>,
+        brdattr -> Int4,
+        vote_limit_logins -> Int4,
+        post_limit_logins -> Int4,
+        bvote -> Int4,
+        vote_end_time -> Nullable<Timestamptz>,
+        perm -> Int4,
+        perm_update_time -> Nullable<Timestamptz>,
+        gamble_end_time -> Nullable<Timestamptz>,
+        fastrecommend_pause -> Nullable<Int4>,
+        vote_limit_badpost -> Int4,
+        post_limit_badpost -> Int4,
+        /// XXX Array<Nullable<Int4>> => Array<Int4>.
+        bottom -> Array<Int4>,
+    }
+}
+
+diesel::table! {
     ptt_post (id) {
         id -> Uuid,
         post_id -> Int4,
+        ptt_id -> Nullable<Text>,
         class -> Nullable<Text>,
         content -> Nullable<Text>,
         money -> Int4,
@@ -55,7 +79,13 @@ diesel::table! {
 }
 
 diesel::joinable!(ptt_comment -> comment (comment_id));
+diesel::joinable!(ptt_community -> community (community_id));
 diesel::joinable!(ptt_post -> post (post_id));
 diesel::joinable!(ptt_post_comment -> post (post_id));
 
-diesel::allow_tables_to_appear_in_same_query!(ptt_comment, ptt_post, ptt_post_comment);
+diesel::allow_tables_to_appear_in_same_query!(
+    ptt_comment,
+    ptt_community,
+    ptt_post,
+    ptt_post_comment,
+);

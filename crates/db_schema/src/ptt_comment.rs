@@ -18,6 +18,7 @@ use serde::{Deserialize, Serialize};
 pub struct PttComment {
     id: uuid::Uuid,
     comment_id: i32,
+    ptt_id: Option<String>,
     the_type: Option<CommentType>,
     ip: Option<String>,
     host: Option<String>,

@@ -1,6 +1,6 @@
 [print_schema]
 file = "crates/db_schema_file/src/schema.rs"
-patch_file = "crates/db_schema_file/lemmy_post_comment.patch"
+patch_file = "crates/db_schema_file/schema.patch"
 # These tables are in the lemmy crates instead.
 filter = { except_tables = [
     "previously_run_sql",
@@ -12,10 +12,12 @@ filter = { except_tables = [
     "comment_aggregates",
     "comment_reply",
     "comment_report",
-    "community",
     "community_actions",
     "community_aggregates",
     "community_language",
+    "community_community_follow",
+    "community_report",
+    "community_tag",
     "email_verification",
     "federation_allowlist",
     "federation_blocklist",
@@ -39,6 +41,11 @@ filter = { except_tables = [
     "mod_remove_community",
     "mod_remove_post",
     "mod_transfer_community",
+    "modlog",
+    "multi_community",
+    "multi_community_entry",
+    "multi_community_follow",
+    "notification",
     "oauth_account",
     "oauth_provider",
     "password_reset_request",
@@ -66,6 +73,7 @@ filter = { except_tables = [
     "secret",
     "sent_activity",
     "tagline",
+    "report_combined",
 ] }
 
 # Required for https://github.com/adwhit/diesel-derive-enum

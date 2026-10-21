@@ -1,16 +1,20 @@
 diff --git a/crates/db_schema_file/src/schema.rs b/crates/db_schema_file/src/schema.rs
-index 0f3489d..80b87c3 100644
+index e1c9b6f..2f4d8f3 100644
 --- a/crates/db_schema_file/src/schema.rs
 +++ b/crates/db_schema_file/src/schema.rs
-@@ -1,67 +1,11 @@
+@@ -1,112 +1,11 @@
  // @generated automatically by Diesel CLI.
-
-+pub use lemmy_db_schema_file::schema::{comment, post};
+ 
++pub use lemmy_db_schema_file::schema::{comment, community, post};
 +
  pub mod sql_types {
      #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
      #[diesel(postgres_type(name = "comment_type_enum"))]
      pub struct CommentTypeEnum;
+-
+-    #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
+-    #[diesel(postgres_type(name = "community_visibility"))]
+-    pub struct CommunityVisibility;
 -
 -    #[derive(diesel::query_builder::QueryId, diesel::sql_types::SqlType)]
 -    #[diesel(postgres_type(name = "ltree"))]
@@ -36,6 +40,47 @@ index 0f3489d..80b87c3 100644
 -        path -> Ltree,
 -        distinguished -> Bool,
 -        language_id -> Int4,
+-    }
+-}
+-
+-diesel::table! {
+-    use diesel::sql_types::*;
+-    use super::sql_types::CommunityVisibility;
+-
+-    community (id) {
+-        id -> Int4,
+-        #[max_length = 255]
+-        name -> Varchar,
+-        #[max_length = 255]
+-        title -> Varchar,
+-        sidebar -> Nullable<Text>,
+-        removed -> Bool,
+-        published -> Timestamptz,
+-        updated -> Nullable<Timestamptz>,
+-        deleted -> Bool,
+-        nsfw -> Bool,
+-        #[max_length = 255]
+-        actor_id -> Varchar,
+-        local -> Bool,
+-        private_key -> Nullable<Text>,
+-        public_key -> Text,
+-        last_refreshed_at -> Timestamptz,
+-        icon -> Nullable<Text>,
+-        banner -> Nullable<Text>,
+-        #[max_length = 255]
+-        followers_url -> Nullable<Varchar>,
+-        #[max_length = 255]
+-        inbox_url -> Varchar,
+-        hidden -> Bool,
+-        posting_restricted_to_mods -> Bool,
+-        instance_id -> Int4,
+-        #[max_length = 255]
+-        moderators_url -> Nullable<Varchar>,
+-        #[max_length = 255]
+-        featured_url -> Nullable<Varchar>,
+-        visibility -> CommunityVisibility,
+-        #[max_length = 150]
+-        description -> Nullable<Varchar>,
 -    }
 -}
 -
@@ -70,22 +115,33 @@ index 0f3489d..80b87c3 100644
 -        scheduled_publish_time -> Nullable<Timestamptz>,
 -    }
  }
-
+ 
  diesel::table! {
-@@ -110,15 +54,8 @@ diesel::table! {
+@@ -144,7 +43,8 @@ diesel::table! {
+         fastrecommend_pause -> Nullable<Int4>,
+         vote_limit_badpost -> Int4,
+         post_limit_badpost -> Int4,
+-        bottom -> Array<Nullable<Int4>>,
++        /// XXX Array<Nullable<Int4>> => Array<Int4>.
++        bottom -> Array<Int4>,
      }
  }
-
+ 
+@@ -178,17 +78,12 @@ diesel::table! {
+     }
+ }
+ 
 -diesel::joinable!(comment -> post (post_id));
+-diesel::joinable!(post -> community (community_id));
  diesel::joinable!(ptt_comment -> comment (comment_id));
+ diesel::joinable!(ptt_community -> community (community_id));
  diesel::joinable!(ptt_post -> post (post_id));
  diesel::joinable!(ptt_post_comment -> post (post_id));
-
--diesel::allow_tables_to_appear_in_same_query!(
+ 
+ diesel::allow_tables_to_appear_in_same_query!(
 -    comment,
+-    community,
 -    post,
--    ptt_comment,
--    ptt_post,
--    ptt_post_comment,
--);
-+diesel::allow_tables_to_appear_in_same_query!(ptt_comment, ptt_post, ptt_post_comment);
+     ptt_comment,
+     ptt_community,
+     ptt_post,
