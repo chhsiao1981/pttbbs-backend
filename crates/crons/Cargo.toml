@@ -1,5 +1,5 @@
 [package]
-name = "ptt_crons"
+name = "pttbbs-crons"
 version.workspace = true
 edition.workspace = true
 description.workspace = true
@@ -10,6 +10,12 @@ repository.workspace = true
 rust-version.workspace = true
 
 [dependencies]
+lemmy_utils = { workspace = true }
+pttbbs-utils = { workspace = true }
+deser-hjson = { workspace = true }
+tokio = { workspace = true }
+tokio-util = { workspace = true }
+tracing = { workspace = true }
 
 [lints]
 workspace = true

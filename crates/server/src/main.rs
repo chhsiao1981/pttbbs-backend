@@ -1,5 +1,6 @@
 use lemmy_server::start_lemmy_server;
 use lemmy_utils::{error::LemmyResult, settings::SETTINGS};
+use pttbbs_crons::retry_load_popular_boards;
 use pttbbs_server::parse_args;
 use pttbbs_utils::settings::SETTINGS as PTTBBS_SETTINGS;
 use tracing::level_filters::LevelFilter;
@@ -25,6 +26,10 @@ pub async fn main() -> LemmyResult<()> {
 
     let args = parse_args();
 
+    let handle = tokio::task::spawn(async move { retry_load_popular_boards().await });
     start_lemmy_server(args.lemmy_args).await?;
+
+    let _ = handle.await?;
+
     Ok(())
 }

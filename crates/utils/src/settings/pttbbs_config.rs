@@ -35,10 +35,13 @@ pub struct PTTBBSConfig {
     pub pttweb_base_url: String,
 
     /// filename for brdname-whitelist (always retrieving pttweb brdname info).
-    #[default("docs/examples/etc/pttbbs-backend/brdname_white_list.yaml")]
+    #[default("docs/examples/etc/pttbbs-backend/brdname_whitelist.hjson")]
     pub brdname_whitelist_map_filename: String,
 
     /// filename for brdname-whitelist (never retrieving pttweb brdname info).
-    #[default("docs/examples/etc/pttbbs-backend/brdname_black_list.yaml")]
+    #[default("docs/examples/etc/pttbbs-backend/brdname_blacklist.hjson")]
     pub brdname_blacklist_map_filename: String,
+
+    #[default(10)]
+    pub sleep_retry_load_popular_boards_ts: u64,
 }

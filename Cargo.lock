@@ -2514,6 +2514,12 @@ checksum = "e5274423e17b7c9fc20b6e7e208532f9b19825d82dfd615708b70edd83df41f1"
 
 [[package]]
 name = "hashbrown"
+version = "0.15.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "9229cfe53dfd69f0609a49f65461bd93001ea1ef889cd5529dd176593f5338a1"
+
+[[package]]
+name = "hashbrown"
 version = "0.16.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "841d1cc9bed7f9236f321df977030373f4a4163ae1a7dbfe1a51a2c1a51d9100"
@@ -5630,8 +5636,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "ptt_crons"
+name = "pttbbs-crons"
 version = "0.45.0"
+dependencies = [
+ "deser-hjson",
+ "lemmy_utils 0.45.0",
+ "pttbbs-utils",
+ "tokio",
+ "tokio-util",
+ "tracing",
+]
 
 [[package]]
 name = "pttbbs-db-schema"
@@ -5687,8 +5701,10 @@ dependencies = [
  "clap",
  "lemmy_server",
  "lemmy_utils 0.45.0",
+ "pttbbs-crons",
  "pttbbs-utils",
  "tokio",
+ "tokio-util",
  "tracing",
  "tracing-subscriber",
 ]
@@ -5697,6 +5713,7 @@ dependencies = [
 name = "pttbbs-utils"
 version = "0.45.0"
 dependencies = [
+ "anyhow",
  "deser-hjson",
  "doku",
  "lemmy_utils 0.45.0",
@@ -7384,9 +7401,13 @@ checksum = "e464cf451ba96ebfc6f9b6542f17ee8b8956e33f1e40d9690624e59d7a7f8a4b"
 dependencies = [
  "bytes",
  "futures-core",
+ "futures-io",
  "futures-sink",
+ "futures-util",
+ "hashbrown 0.15.5",
  "libc",
  "pin-project-lite",
+ "slab",
  "tokio",
 ]
 

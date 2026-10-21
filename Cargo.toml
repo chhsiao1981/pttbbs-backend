@@ -46,7 +46,7 @@ members = [
   "crates/db_schema_file",
   "crates/db_schema",
   "crates/utils",
-  "crates/ptt_crons",
+  "crates/crons",
 ]
 
 [workspace.package]
@@ -100,6 +100,7 @@ unchecked_time_subtraction = "deny"
 
 [workspace.dependencies]
 pttbbs-utils = { path = "./crates/utils" }
+pttbbs-crons = { path = './crates/crons' }
 pttbbs-db-schema = { path = "./crates/db_schema_file", features = [
   "full",
 ] }
@@ -273,6 +274,9 @@ extism-convert = "1.20.0"
 unified-diff = "0.2.1"
 diesel-uplete = { version = "0.2.0" }
 smart-default = { version = "0.7.1" }
+tokio-util = { version = "0.7.20", features = [
+  "full",
+] }
 
 # Speedup RSA key generation
 # https://github.com/RustCrypto/RSA/blob/master/README.md#example

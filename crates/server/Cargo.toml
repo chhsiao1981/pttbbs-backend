@@ -21,3 +21,5 @@ tracing-subscriber.workspace = true
 tokio.workspace = true
 clap.workspace = true
 pttbbs-utils = { workspace = true }
+pttbbs-crons = { workspace = true }
+tokio-util = { workspace = true }
