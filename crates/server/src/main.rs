@@ -1,6 +1,6 @@
-use clap::Parser;
-use lemmy_server::{CmdArgs, start_lemmy_server};
+use lemmy_server::start_lemmy_server;
 use lemmy_utils::{error::LemmyResult, settings::SETTINGS};
+use pttbbs_server::parse_args;
 use pttbbs_utils::settings::SETTINGS as PTTBBS_SETTINGS;
 use tracing::level_filters::LevelFilter;
 use tracing_subscriber::EnvFilter;
@@ -23,8 +23,8 @@ pub async fn main() -> LemmyResult<()> {
 
     println!("PTTBBS settings: {PTTBBS_SETTINGS:?} pttbbs_config: {pttbbs_config:?}");
 
-    let args = CmdArgs::parse();
+    let args = parse_args();
 
-    start_lemmy_server(args).await?;
+    start_lemmy_server(args.lemmy_args).await?;
     Ok(())
 }

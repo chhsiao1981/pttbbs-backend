@@ -1,8 +1,6 @@
 [workspace]
 resolver = "3"
 members = [
-  "crates/server",
-
   "lemmy/crates/utils",
   "lemmy/crates/db_schema",
   "lemmy/crates/db_schema_file",
@@ -44,6 +42,7 @@ members = [
   "lemmy/crates/routes",
   "lemmy/crates/server",
 
+  "crates/server",
   "crates/db_schema_file",
   "crates/db_schema",
   "crates/utils",
