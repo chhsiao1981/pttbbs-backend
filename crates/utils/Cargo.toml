@@ -15,6 +15,7 @@ lemmy_utils = { workspace = true }
 deser-hjson = { workspace = true }
 serde = { workspace = true }
 doku = { workspace = true }
+anyhow = { workspace = true }
 
 [lints]
 workspace = true

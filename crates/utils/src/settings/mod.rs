@@ -1,5 +1,8 @@
+pub mod brdname_map;
 mod pttbbs_config;
 mod settings;
+
+use crate::settings::brdname_map::BrdnameMap;
 
 use self::settings::Settings;
 use std::env;
@@ -19,3 +22,9 @@ pub static SETTINGS: LazyLock<Settings> = LazyLock::new(|| {
             .expect("Failed to load settings file, see documentation (https://docs.devptt.dev).")
     }
 });
+
+pub static BRDNAME_WHITELIST_MAP: LazyLock<BrdnameMap> =
+    LazyLock::new(|| BrdnameMap::new(&SETTINGS.pttbbs.brdname_whitelist_map_filename));
+
+pub static BRDNAME_BLACKLIST_MAP: LazyLock<BrdnameMap> =
+    LazyLock::new(|| BrdnameMap::new(&SETTINGS.pttbbs.brdname_blacklist_map_filename));
