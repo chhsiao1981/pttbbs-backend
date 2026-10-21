@@ -5630,6 +5630,10 @@ dependencies = [
 ]
 
 [[package]]
+name = "ptt_crons"
+version = "0.45.0"
+
+[[package]]
 name = "pttbbs-db-schema"
 version = "0.45.0"
 dependencies = [

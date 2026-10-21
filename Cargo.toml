@@ -46,6 +46,7 @@ members = [
   "crates/db_schema_file",
   "crates/db_schema",
   "crates/utils",
+  "crates/ptt_crons",
 ]
 
 [workspace.package]
