@@ -10,6 +10,12 @@ repository.workspace = true
 rust-version.workspace = true
 
 [dependencies]
+clap = { workspace = true }
+lemmy_server = { workspace = true }
+lemmy_utils = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
 
 [lints]
 workspace = true

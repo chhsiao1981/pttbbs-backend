@@ -5287,6 +5287,14 @@ dependencies = [
 [[package]]
 name = "pttbbs-server"
 version = "0.45.0"
+dependencies = [
+ "clap",
+ "lemmy_server",
+ "lemmy_utils 0.45.0",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+]
 
 [[package]]
 name = "pulley-interpreter"
