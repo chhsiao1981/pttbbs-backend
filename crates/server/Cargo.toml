@@ -10,9 +10,16 @@ repository.workspace = true
 rust-version.workspace = true
 
 [dependencies]
-clap = { workspace = true }
+lemmy_api_utils = { workspace = true }
+lemmy_db_schema = { workspace = true }
+lemmy_diesel_utils = { workspace = true }
+lemmy_routes = { workspace = true }
 lemmy_server = { workspace = true }
 lemmy_utils = { workspace = true }
+actix-web = { workspace = true }
+clap = { workspace = true }
+reqwest-middleware = { workspace = true }
+reqwest-tracing = { workspace = true }
 tokio = { workspace = true }
 tracing = { workspace = true }
 tracing-subscriber = { workspace = true }

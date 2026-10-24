@@ -1,3 +1,13 @@
+[workspace.package]
+version = "0.45.0"
+edition = "2024"
+description = "Lemmy for PTTBBS"
+license = "AGPL-3.0"
+homepage = "https://www.devptt.dev/"
+documentation = "https://doc.devptt.dev"
+repository = "https://github.com/Ptt-official-app/pttbbs-backend"
+rust-version = "1.99"
+
 [workspace]
 resolver = "3"
 members = [
@@ -43,16 +53,6 @@ members = [
   "lemmy/crates/server",
   "crates/server",
 ]
-
-[workspace.package]
-version = "0.45.0"
-edition = "2024"
-description = "Lemmy for PTTBBS"
-license = "AGPL-3.0"
-homepage = "https://www.devptt.dev/"
-documentation = "https://doc.devptt.dev"
-repository = "https://github.com/Ptt-official-app/pttbbs-backend"
-rust-version = "1.99"
 
 [workspace.lints.clippy]
 cast_lossless = "deny"

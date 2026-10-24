@@ -20,6 +20,6 @@ pub async fn main() -> LemmyResult<()> {
 
     let args = CmdArgs::parse();
 
-    start_lemmy_server(args).await?;
+    start_server(args).await?;
     Ok(())
 }
