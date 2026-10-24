@@ -5285,6 +5285,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "pttbbs-routes"
+version = "0.45.0"
+dependencies = [
+ "actix-web",
+ "lemmy_api_crud",
+ "lemmy_utils 0.45.0",
+]
+
+[[package]]
 name = "pttbbs-server"
 version = "0.45.0"
 dependencies = [
@@ -5298,6 +5307,7 @@ dependencies = [
  "lemmy_routes",
  "lemmy_server",
  "lemmy_utils 0.45.0",
+ "pttbbs-routes",
  "reqwest-middleware",
  "reqwest-tracing",
  "serde_json",

@@ -31,6 +31,7 @@ use lemmy_utils::{
     response::jsonify_plain_text_errors,
     settings::{SETTINGS, structs::Settings},
 };
+use pttbbs_routes;
 use reqwest_middleware::ClientBuilder;
 use reqwest_tracing::TracingMiddleware;
 use serde_json::json;
@@ -156,7 +157,7 @@ fn create_http_server(context: LemmyContext, settings: Settings) -> LemmyResult<
             ));
 
         // The routes
-        app.configure(|cfg| lemmy_api_routes::config(cfg, &rate_limit))
+        app.configure(|cfg| pttbbs_routes::config(cfg, &rate_limit))
     })
     .disable_signals()
     .bind(bind)?
