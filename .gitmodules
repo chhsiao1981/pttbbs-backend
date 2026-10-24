@@ -4,3 +4,6 @@
 [submodule "lemmy"]
 	path = lemmy
 	url = git@github.com:LemmyNet/lemmy.git
+[submodule "lemmy-js-client"]
+	path = lemmy-js-client
+	url = https://github.com/LemmyNet/lemmy-js-client.git
