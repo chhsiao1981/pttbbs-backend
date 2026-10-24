@@ -1,30 +1,48 @@
 use actix_web::{
-    App, HttpResponse, HttpServer,
+    App,
+    HttpResponse,
+    HttpServer,
     dev::{ServerHandle, ServiceResponse},
     middleware::{self, Condition, ErrorHandlerResponse, ErrorHandlers},
-    web::{Data, get, scope},
+    web::Data,
 };
 use lemmy_api_utils::{
-    context::LemmyContext, request::client_builder,
+    context::LemmyContext,
+    request::client_builder,
     utils::local_site_rate_limit_to_rate_limit_config,
 };
 use lemmy_db_schema::source::secret::Secret;
 use lemmy_diesel_utils::connection::build_db_pool;
-use lemmy_routes::utils::{
-    prometheus_metrics::serve_prometheus, setup_local_site::setup_local_site,
+use lemmy_routes::{
+    middleware::{
+        idempotency::{IdempotencyMiddleware, IdempotencySet},
+        session::SessionMiddleware,
+    },
+    utils::{
+        cors_config,
+        prometheus_metrics::{new_prometheus_metrics, serve_prometheus},
+        setup_local_site::setup_local_site,
+    },
 };
-use lemmy_server::CmdArgs;
-use lemmy_utils::{VERSION, error::LemmyResult, rate_limit::RateLimit, settings::SETTINGS};
+use lemmy_utils::{
+    VERSION,
+    error::LemmyResult,
+    rate_limit::RateLimit,
+    response::jsonify_plain_text_errors,
+    settings::{SETTINGS, structs::Settings},
+};
 use reqwest_middleware::ClientBuilder;
 use reqwest_tracing::TracingMiddleware;
+use serde_json::json;
 use tokio::signal::unix::SignalKind;
+use tracing_actix_web::{DefaultRootSpanBuilder, TracingLogger};
 
-pub async fn start_server(args: CmdArgs) -> LemmyResult<()> {
+pub async fn start_server() -> LemmyResult<()> {
     // Print version number to log
     println!("Starting Lemmy v{}", *VERSION);
 
     // return error 503 while running db migrations and startup tasks
-    let mut startup_server_handle = create_startup_server()?;
+    let startup_server_handle = create_startup_server()?;
 
     // Set up the connection pool
     let pool = build_db_pool()?;
@@ -63,8 +81,8 @@ pub async fn start_server(args: CmdArgs) -> LemmyResult<()> {
         serve_prometheus(prometheus, context.clone())?;
     }
 
-    startup_server_handle.stop(true).await?;
-    let server = create_http_server(SETTINGS.clone(), site_view)?;
+    startup_server_handle.stop(true).await;
+    let server = create_http_server(context, SETTINGS.clone())?;
 
     // This FederationConfig instance is exclusively used to send activities, so we can safely
     // increase the timeout without affecting timeouts for resolving objects anywhere.
@@ -82,9 +100,8 @@ pub async fn start_server(args: CmdArgs) -> LemmyResult<()> {
         tracing::warn!("Received terminate, shutting down gracefully...");
       }
     }
-    if let Some(server) = server {
-        server.stop(true).await;
-    }
+
+    server.stop(true).await;
 
     Ok(())
 }
@@ -108,7 +125,7 @@ fn create_startup_server() -> LemmyResult<ServerHandle> {
     Ok(startup_server_handle)
 }
 
-fn create_http_server(settings: Settings, site_view: SiteView) -> LemmyResult<ServerHandle> {
+fn create_http_server(context: LemmyContext, settings: Settings) -> LemmyResult<ServerHandle> {
     // These must come before HttpServer creation so they can collect data across threads.
     let prom_api_metrics = new_prometheus_metrics()?;
     let idempotency_set = IdempotencySet::default();
@@ -116,16 +133,15 @@ fn create_http_server(settings: Settings, site_view: SiteView) -> LemmyResult<Se
     // Create Http server
     let bind = (settings.bind, settings.port);
     let server = HttpServer::new(move || {
-        let context: LemmyContext = federation_config.deref().clone();
-        let rate_limit = federation_config.rate_limit_cell().clone();
+        let rate_limit = context.rate_limit_cell().clone();
 
         let cors_config = cors_config(&settings);
         let app = App::new()
             .wrap(ErrorHandlers::new().default_handler(jsonify_plain_text_errors))
             .wrap(middleware::Logger::new(
-                // This is the default log format save for the usage of %{r}a over %a to guarantee to
-                // record the client's (forwarded) IP and not the last peer address, since the latter is
-                // frequently just a reverse proxy
+                // This is the default log format save for the usage of %{r}a over %a to guarantee
+                // to record the client's (forwarded) IP and not the last peer
+                // address, since the latter is frequently just a reverse proxy
                 "%{r}a '%r' %s %b '%{Referer}i' '%{User-Agent}i' %T",
             ))
             .wrap(middleware::Compress::default())
@@ -141,20 +157,6 @@ fn create_http_server(settings: Settings, site_view: SiteView) -> LemmyResult<Se
 
         // The routes
         app.configure(|cfg| lemmy_api_routes::config(cfg, &rate_limit))
-            .configure(|cfg| lemmy_api_routes_v3::config(cfg, &rate_limit))
-            .configure(|cfg| {
-                if site_view.local_site.federation_enabled {
-                    lemmy_apub::http::routes::config(cfg);
-                    webfinger::config(cfg);
-                }
-            })
-            .configure(|cfg| feeds::config(cfg, &rate_limit))
-            .configure(nodeinfo::config)
-            .service(
-                scope("/sitemap.xml")
-                    .wrap(rate_limit.message())
-                    .route("", get().to(get_sitemap)),
-            )
     })
     .disable_signals()
     .bind(bind)?

@@ -1,0 +1,36 @@
+edition = "2024"
+imports_layout = "HorizontalVertical"
+imports_granularity = "Crate"
+group_imports = "One"
+ignore = [
+    "api/*",
+    "apidoc/*",
+    "apitypes/*",
+    "boardd/*",
+    "boarddreadcontent/*",
+    "configutil/*",
+    "cron/*",
+    "db/*",
+    "dbcs/*",
+    "docker/*",
+    "docs/*",
+    "fav/*",
+    "mand/*",
+    "mandloadmanarticles/*",
+    "mock/*",
+    "mockhttp/*",
+    "oidcop/*",
+    "pttbbs/*",
+    "queue/*",
+    "schema/*",
+    "scripts/*",
+    "swagger/*",
+    "testcase/*",
+    "types/*",
+    "utils/*",
+    "zk/*",
+    "target/*",
+    "lemmy/*",
+]
+wrap_comments = true
+comment_width = 100

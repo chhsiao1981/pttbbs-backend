@@ -5290,16 +5290,20 @@ version = "0.45.0"
 dependencies = [
  "actix-web",
  "clap",
+ "lemmy_api_routes",
  "lemmy_api_utils",
  "lemmy_db_schema 0.45.0",
+ "lemmy_db_views_site",
  "lemmy_diesel_utils",
  "lemmy_routes",
  "lemmy_server",
  "lemmy_utils 0.45.0",
  "reqwest-middleware",
  "reqwest-tracing",
+ "serde_json",
  "tokio",
  "tracing",
+ "tracing-actix-web",
  "tracing-subscriber",
 ]
 

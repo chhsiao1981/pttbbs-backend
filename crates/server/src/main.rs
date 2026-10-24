@@ -1,6 +1,5 @@
-use clap::Parser;
-use lemmy_server::{CmdArgs, start_lemmy_server};
 use lemmy_utils::{error::LemmyResult, settings::SETTINGS};
+use pttbbs_server::start_server;
 use tracing::level_filters::LevelFilter;
 use tracing_subscriber::EnvFilter;
 
@@ -18,8 +17,6 @@ pub async fn main() -> LemmyResult<()> {
         tracing_subscriber::fmt().with_env_filter(filter).init();
     }
 
-    let args = CmdArgs::parse();
-
-    start_server(args).await?;
+    start_server().await?;
     Ok(())
 }
