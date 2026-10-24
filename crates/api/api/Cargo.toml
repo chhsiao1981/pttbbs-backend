@@ -1,0 +1,30 @@
+[package]
+name = "pttbbs-api"
+version.workspace = true
+edition.workspace = true
+description.workspace = true
+license.workspace = true
+homepage.workspace = true
+documentation.workspace = true
+repository.workspace = true
+rust-version.workspace = true
+
+[dependencies]
+actix-web = { workspace = true }
+lemmy_api_utils = { workspace = true }
+lemmy_db_views_local_user = { workspace = true }
+lemmy_db_views_site = { workspace = true }
+lemmy_diesel_utils = { workspace = true }
+lemmy_utils = { workspace = true }
+serde = { workspace = true }
+serde_with = { workspace = true }
+ts-rs = { workspace = true, optional = true }
+
+[lints]
+workspace = true
+
+[features]
+ts-rs = [
+    "dep:ts-rs",
+    "lemmy_db_views_local_user/ts-rs",
+]

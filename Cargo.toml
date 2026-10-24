@@ -53,6 +53,7 @@ members = [
   "lemmy/crates/server",
   "crates/server",
   "crates/api/routes",
+  "crates/api/api",
 ]
 
 [workspace.lints.clippy]
@@ -98,6 +99,7 @@ unchecked_time_subtraction = "deny"
 unsafe_code = "forbid"
 
 [workspace.dependencies]
+pttbbs-api = { path = './crates/api/api' }
 pttbbs-routes = { path = './crates/api/routes' }
 pttbbs-server = { path = './crates/server' }
 lemmy_api = { path = "./lemmy/crates/api/api" }

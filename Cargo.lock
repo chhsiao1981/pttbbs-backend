@@ -5285,12 +5285,28 @@ dependencies = [
 ]
 
 [[package]]
+name = "pttbbs-api"
+version = "0.45.0"
+dependencies = [
+ "actix-web",
+ "lemmy_api_utils",
+ "lemmy_db_views_local_user",
+ "lemmy_db_views_site",
+ "lemmy_diesel_utils",
+ "lemmy_utils 0.45.0",
+ "serde",
+ "serde_with",
+ "ts-rs",
+]
+
+[[package]]
 name = "pttbbs-routes"
 version = "0.45.0"
 dependencies = [
  "actix-web",
  "lemmy_api_crud",
  "lemmy_utils 0.45.0",
+ "pttbbs-api",
 ]
 
 [[package]]

@@ -5,4 +5,5 @@
   database: {
     connection: "postgres://ptt:12345678@localhost:5432/pttbbs-dev"
   }
+  port: 8537
 }

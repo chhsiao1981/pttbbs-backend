@@ -10,6 +10,7 @@ repository.workspace = true
 rust-version.workspace = true
 
 [dependencies]
+pttbbs-api = { workspace = true }
 actix-web = { workspace = true }
 lemmy_api_crud = { workspace = true }
 lemmy_utils = { workspace = true }

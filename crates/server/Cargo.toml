@@ -9,6 +9,10 @@ documentation.workspace = true
 repository.workspace = true
 rust-version.workspace = true
 
+[[bin]]
+name = "pttbbs-lemmy"
+path = "src/main.rs"
+
 [dependencies]
 pttbbs-routes = { workspace = true }
 lemmy_api_routes = { workspace = true }
