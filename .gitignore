@@ -33,3 +33,4 @@ coverage.txt
 /apidoc/build
 /docs/examples/home/bbs
 /docs/examples/var/mail
+/config/config.hjson
